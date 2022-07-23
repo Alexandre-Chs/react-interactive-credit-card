@@ -1,0 +1,402 @@
+@keyframes slidein {
+  from {
+    margin-top: 50px;
+  }
+  50% {
+    margin-top: 150px;
+  }
+  to {
+    margin-top: 100px;
+  }
+}
+
+.wrapper {
+  min-height: 100vh;
+  padding: 50px 15px;
+}
+
+.card-form {
+  max-width: 570px;
+  margin: auto;
+  width: 100%;
+}
+
+.card-list {
+  margin-bottom: -130px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.card-item {
+  max-width: 430px;
+  height: 270px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+
+  @media screen and (max-width: 500px) {
+    max-width: 310px;
+    height: 220px;
+    width: 90%;
+  }
+
+  &__side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+
+    transform-style: preserve-3d;
+    transition: all 0.8s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+    backface-visibility: hidden;
+    &.-front {
+      position: absolute;
+      width: 100%;
+      backface-visibility: hidden;
+    }
+
+    &.back {
+      transform: rotateY(-180deg);
+      backface-visibility: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+
+  &__focus {
+    position: absolute;
+    z-index: 5;
+    border-radius: 5px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border: 2px solid rgba(255, 255, 255, 0.65);
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  &__cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("../images/texture.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__wrapper {
+    position: relative;
+    height: 100%;
+    padding: 15px;
+    z-index: 7;
+    color: white;
+    .card-item__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 50px;
+      @media screen and (max-width: 500px) {
+        margin-bottom: 39px;
+      }
+    }
+
+    .card-item__chip {
+      width: 70px;
+      @media screen and (max-width: 500px) {
+        width: 60px;
+      }
+    }
+
+    .card-item__logoVisa {
+      img {
+        width: 100px;
+        @media screen and (max-width: 500px) {
+          width: 80px;
+        }
+      }
+    }
+
+    .card-item__number {
+      font-size: 30px;
+      letter-spacing: 3px;
+      display: flex;
+      justify-content: center;
+      line-height: 1;
+      cursor: pointer;
+      margin-bottom: 60px;
+
+      @media screen and (max-width: 500px) {
+        margin-bottom: 40px;
+        font-size: 25px;
+      }
+    }
+
+    .card-item__content {
+      display: flex;
+      justify-content: space-between;
+
+      .card-item__holder {
+        width: 100%;
+        max-width: calc(100% - 79px);
+        padding: 5px 10px;
+        cursor: pointer;
+        overflow: hidden;
+        
+
+        @media screen and (max-width: 500px) {
+          overflow: hidden;
+          height: 42px;
+        }
+        p:first-child {
+          @media screen and (max-width: 500px) {
+            font-size: 14px;
+          }
+        }
+
+        p:last-child {
+          font-weight: 800;
+          @media screen and (max-width: 500px) {
+            font-size: 12px;
+            font-weight: 400;
+          }
+        }
+      }
+      .card-item__expires {
+        position: relative;
+        width: 19%;
+        cursor: pointer;
+        p:first-child {
+          position: absolute;
+          left: 10px;
+          top: 5px;
+          @media screen and (max-width: 500px) {
+            left: 0;
+            font-size: 14px;
+          }
+        }
+
+        p:last-child {
+          position: absolute;
+          bottom: 5px;
+          left: 10px;
+          @media screen and (max-width: 500px) {
+            left: 0;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.card-form {
+  &__inner {
+    width: 100%;
+    border-radius: 10px;
+    padding: 35px;
+    padding-top: 180px;
+    background-color: #fff;
+    box-shadow: 0 30px 60px 0 rgba(57, 83, 114, 0.295);
+    font-size: 14px;
+  }
+  input {
+    padding: 10px;
+    user-select: none;
+    border: 1px solid rgba(0, 0, 0, 0.144);
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+  textarea,
+  input {
+    outline: none;
+  }
+  .card-form-input__number {
+    display: flex;
+    flex-direction: column;
+  }
+  .card-form-input__holder {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+  }
+
+  .card-form-input__moreInformations {
+    display: flex;
+    @media screen and (max-width: 500px) {
+      flex-direction: column;
+    }
+    margin-top: 25px;
+    .card-form-input__expires {
+      display: flex;
+      flex-direction: column;
+      flex: 2;
+      .selectInput {
+        display: flex;
+        height: 100%;
+        select {
+          margin-right: 15px;
+          width: 50%;
+          margin-top: 5px;
+          padding-left: 15px;
+          border-radius: 5px;
+          border: 1px solid rgba(0, 0, 0, 0.144);
+          @media screen and (max-width: 500px) {
+            padding: 10px;
+          }
+        }
+      }
+    }
+
+    .card-form-input__CVV {
+      display: flex;
+      flex-direction: column;
+      @media screen and (max-width: 500px) {
+        margin-top: 25px;
+      }
+    }
+  }
+
+  .card-form__submit {
+    width: 100%;
+    margin-top: 25px;
+    height: 55px;
+    background: #2364d2;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15), 0 10px 10px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 22px;
+    color: #fff;
+    cursor: pointer;
+  }
+}
+
+.active {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.card-item__side.back.active {
+  transform: rotateY(0);
+}
+
+// BACK CARD
+
+.card-item__band {
+  height: 50px;
+  width: 100%;
+  margin-top: 30px;
+  background-color: rgba(0, 0, 19, 0.8);
+  position: relative;
+  z-index: 54565;
+}
+
+.card-item__CVV {
+  padding: 15px;
+
+  .card-item__CVV_name {
+    position: relative;
+    z-index: 100000;
+    background-color: transparent;
+    text-align: end;
+    padding-right: 12px;
+    font-weight: 600;
+  }
+  .card-item__CVV_whiteZone {
+    position: relative;
+    z-index: 453434;
+    width: 100%;
+    background-color: #fff;
+    height: 45px;
+    border-radius: 5px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 15px;
+  }
+
+  .card-item__CVV_inputCVV {
+    background-color: #fff;
+    font-weight: 600;
+    transform: translate(0px, 4px);
+  }
+}
+
+.card-item__visaLogo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 20px 15px;
+  position: relative;
+  z-index: 555;
+  @media screen and (max-width: 500px) {
+    margin: 4px 15px;
+  }
+  img {
+    width: 100px;
+    @media screen and (max-width: 500px) {
+      width: 70px;
+    }
+  }
+}
+
+.triggerNumber {
+  transform: translate(49px, 114px);
+  height: 50px;
+  max-width: 325px;
+  width: 100%;
+  opacity: 1;
+  transition: all 0.35s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+  background-color: rgba(0, 0, 0, 0.11);
+  @media screen and (max-width: 500px) {
+    transform: translate(16px, 96px);
+    height: 40px;
+    max-width: 275px;
+  }
+}
+
+.triggerHolder {
+  transform: translate(7px, 212px);
+  height: 50px;
+  max-width: 334px;
+  width: 100%;
+  opacity: 1;
+  transition: all 0.35s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+  background-color: rgba(0, 0, 0, 0.11);
+
+  @media screen and (max-width: 500px) {
+    transform: translate(14px, 171px);
+    height: 40px;
+    max-width: 216px;
+  }
+}
+
+.triggerExpires {
+  transform: translate(337px, 212px);
+  height: 50px;
+  max-width: 77px;
+  width: 100%;
+  opacity: 1;
+  transition: all 0.35s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+  background-color: rgba(0, 0, 0, 0.11);
+
+  @media screen and (max-width: 500px) {
+    transform: translate(228px, 171px);
+    height: 40px;
+    max-width: 73px;
+  }
+}

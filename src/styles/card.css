@@ -1,0 +1,544 @@
+@-webkit-keyframes slidein {
+  from {
+    margin-top: 50px;
+  }
+  50% {
+    margin-top: 150px;
+  }
+  to {
+    margin-top: 100px;
+  }
+}
+
+@keyframes slidein {
+  from {
+    margin-top: 50px;
+  }
+  50% {
+    margin-top: 150px;
+  }
+  to {
+    margin-top: 100px;
+  }
+}
+
+.wrapper {
+  min-height: 100vh;
+  padding: 50px 15px;
+}
+
+.card-form {
+  max-width: 570px;
+  margin: auto;
+  width: 100%;
+}
+
+.card-list {
+  margin-bottom: -130px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.card-item {
+  max-width: 430px;
+  height: 270px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .card-item {
+    max-width: 310px;
+    height: 220px;
+    width: 90%;
+  }
+}
+
+.card-item__side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: all 0.8s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+  transition: all 0.8s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.card-item__side.-front {
+  position: absolute;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.card-item__side.back {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.card-item__focus {
+  position: absolute;
+  z-index: 5;
+  border-radius: 5px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border: 2px solid rgba(255, 255, 255, 0.65);
+  overflow: hidden;
+  opacity: 0;
+}
+
+.card-item__cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/texture.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.card-item__wrapper {
+  position: relative;
+  height: 100%;
+  padding: 15px;
+  z-index: 7;
+  color: white;
+}
+
+.card-item__wrapper .card-item__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 500px) {
+  .card-item__wrapper .card-item__top {
+    margin-bottom: 39px;
+  }
+}
+
+.card-item__wrapper .card-item__chip {
+  width: 70px;
+}
+
+@media screen and (max-width: 500px) {
+  .card-item__wrapper .card-item__chip {
+    width: 60px;
+  }
+}
+
+.card-item__wrapper .card-item__logoVisa img {
+  width: 100px;
+}
+
+@media screen and (max-width: 500px) {
+  .card-item__wrapper .card-item__logoVisa img {
+    width: 80px;
+  }
+}
+
+.card-item__wrapper .card-item__number {
+  font-size: 30px;
+  letter-spacing: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  line-height: 1;
+  cursor: pointer;
+  margin-bottom: 60px;
+}
+
+@media screen and (max-width: 500px) {
+  .card-item__wrapper .card-item__number {
+    margin-bottom: 40px;
+    font-size: 25px;
+  }
+}
+
+.card-item__wrapper .card-item__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.card-item__wrapper .card-item__content .card-item__holder {
+  width: 100%;
+  max-width: calc(100% - 79px);
+  padding: 5px 10px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 500px) {
+  .card-item__wrapper .card-item__content .card-item__holder {
+    overflow: hidden;
+    height: 42px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card-item__wrapper .card-item__content .card-item__holder p:first-child {
+    font-size: 14px;
+  }
+}
+
+.card-item__wrapper .card-item__content .card-item__holder p:last-child {
+  font-weight: 800;
+}
+
+@media screen and (max-width: 500px) {
+  .card-item__wrapper .card-item__content .card-item__holder p:last-child {
+    font-size: 12px;
+    font-weight: 400;
+  }
+}
+
+.card-item__wrapper .card-item__content .card-item__expires {
+  position: relative;
+  width: 19%;
+  cursor: pointer;
+}
+
+.card-item__wrapper .card-item__content .card-item__expires p:first-child {
+  position: absolute;
+  left: 10px;
+  top: 5px;
+}
+
+@media screen and (max-width: 500px) {
+  .card-item__wrapper .card-item__content .card-item__expires p:first-child {
+    left: 0;
+    font-size: 14px;
+  }
+}
+
+.card-item__wrapper .card-item__content .card-item__expires p:last-child {
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+}
+
+@media screen and (max-width: 500px) {
+  .card-item__wrapper .card-item__content .card-item__expires p:last-child {
+    left: 0;
+    font-size: 12px;
+  }
+}
+
+.card-form__inner {
+  width: 100%;
+  border-radius: 10px;
+  padding: 35px;
+  padding-top: 180px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(57, 83, 114, 0.295);
+          box-shadow: 0 30px 60px 0 rgba(57, 83, 114, 0.295);
+  font-size: 14px;
+}
+
+.card-form input {
+  padding: 10px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border: 1px solid rgba(0, 0, 0, 0.144);
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.card-form textarea,
+.card-form input {
+  outline: none;
+}
+
+.card-form .card-form-input__number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.card-form .card-form-input__holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 25px;
+}
+
+.card-form .card-form-input__moreInformations {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 25px;
+}
+
+@media screen and (max-width: 500px) {
+  .card-form .card-form-input__moreInformations {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.card-form .card-form-input__moreInformations .card-form-input__expires {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.card-form .card-form-input__moreInformations .card-form-input__expires .selectInput {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+.card-form .card-form-input__moreInformations .card-form-input__expires .selectInput select {
+  margin-right: 15px;
+  width: 50%;
+  margin-top: 5px;
+  padding-left: 15px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.144);
+}
+
+@media screen and (max-width: 500px) {
+  .card-form .card-form-input__moreInformations .card-form-input__expires .selectInput select {
+    padding: 10px;
+  }
+}
+
+.card-form .card-form-input__moreInformations .card-form-input__CVV {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (max-width: 500px) {
+  .card-form .card-form-input__moreInformations .card-form-input__CVV {
+    margin-top: 25px;
+  }
+}
+
+.card-form .card-form__submit {
+  width: 100%;
+  margin-top: 25px;
+  height: 55px;
+  background: #2364d2;
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15), 0 10px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15), 0 10px 10px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.active {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.card-item__side.back.active {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+}
+
+.card-item__band {
+  height: 50px;
+  width: 100%;
+  margin-top: 30px;
+  background-color: rgba(0, 0, 19, 0.8);
+  position: relative;
+  z-index: 54565;
+}
+
+.card-item__CVV {
+  padding: 15px;
+}
+
+.card-item__CVV .card-item__CVV_name {
+  position: relative;
+  z-index: 100000;
+  background-color: transparent;
+  text-align: end;
+  padding-right: 12px;
+  font-weight: 600;
+}
+
+.card-item__CVV .card-item__CVV_whiteZone {
+  position: relative;
+  z-index: 453434;
+  width: 100%;
+  background-color: #fff;
+  height: 45px;
+  border-radius: 5px;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-right: 15px;
+}
+
+.card-item__CVV .card-item__CVV_inputCVV {
+  background-color: #fff;
+  font-weight: 600;
+  -webkit-transform: translate(0px, 4px);
+          transform: translate(0px, 4px);
+}
+
+.card-item__visaLogo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin: 20px 15px;
+  position: relative;
+  z-index: 555;
+}
+
+@media screen and (max-width: 500px) {
+  .card-item__visaLogo {
+    margin: 4px 15px;
+  }
+}
+
+.card-item__visaLogo img {
+  width: 100px;
+}
+
+@media screen and (max-width: 500px) {
+  .card-item__visaLogo img {
+    width: 70px;
+  }
+}
+
+.triggerNumber {
+  -webkit-transform: translate(49px, 114px);
+          transform: translate(49px, 114px);
+  height: 50px;
+  max-width: 325px;
+  width: 100%;
+  opacity: 1;
+  -webkit-transition: all 0.35s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+  transition: all 0.35s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+  background-color: rgba(0, 0, 0, 0.11);
+}
+
+@media screen and (max-width: 500px) {
+  .triggerNumber {
+    -webkit-transform: translate(16px, 96px);
+            transform: translate(16px, 96px);
+    height: 40px;
+    max-width: 275px;
+  }
+}
+
+.triggerHolder {
+  -webkit-transform: translate(7px, 212px);
+          transform: translate(7px, 212px);
+  height: 50px;
+  max-width: 334px;
+  width: 100%;
+  opacity: 1;
+  -webkit-transition: all 0.35s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+  transition: all 0.35s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+  background-color: rgba(0, 0, 0, 0.11);
+}
+
+@media screen and (max-width: 500px) {
+  .triggerHolder {
+    -webkit-transform: translate(14px, 171px);
+            transform: translate(14px, 171px);
+    height: 40px;
+    max-width: 216px;
+  }
+}
+
+.triggerExpires {
+  -webkit-transform: translate(337px, 212px);
+          transform: translate(337px, 212px);
+  height: 50px;
+  max-width: 77px;
+  width: 100%;
+  opacity: 1;
+  -webkit-transition: all 0.35s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+  transition: all 0.35s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+  background-color: rgba(0, 0, 0, 0.11);
+}
+
+@media screen and (max-width: 500px) {
+  .triggerExpires {
+    -webkit-transform: translate(228px, 171px);
+            transform: translate(228px, 171px);
+    height: 40px;
+    max-width: 73px;
+  }
+}
+/*# sourceMappingURL=card.css.map */
