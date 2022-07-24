@@ -42,6 +42,13 @@ const Card = () => {
   const [borderHolder, setBorderHolder] = useState(false);
   const [borderExpires, setBorderExpires] = useState(false);
 
+  //USE EFFECT
+  const [test, setTest] = useState(false);
+
+  useEffect(() => {
+    setTest(true);
+  }, [switchToNumber]);
+
   return (
     <div className="card-form">
       <div className="card-list">
@@ -78,11 +85,18 @@ const Card = () => {
               </div>
               <label htmlFor="cardNumber" className="card-item__number">
                 {switchToNumber.map((element, index) => {
-                  return (
-                    <span key={index} className="star__element">
+                  let listStar = (
+                    <span
+                      key={index}
+                      className={
+                        element != "#" ? "star__element star__element_fadeIn" : "star__element star__element_fadeOut"
+                      }
+                    >
                       {element}
                     </span>
                   );
+
+                  return listStar;
                 })}
               </label>
               <div className="card-item__content">
